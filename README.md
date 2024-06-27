@@ -12,3 +12,7 @@ This project is a web application for predicting the probability of having lung 
   - `model.ipynb`: A script to preprocess data, train the model, and save the trained model and scaler.
   - `predict_lung_cancer_model.keras`: The saved trained model.
   - `scaler.pkl`: The saved scaler for normalizing input data.
+ 
+
+  ![image](https://github.com/perso98/Lung-Cancer-Predictor/assets/72854881/66e6f5d9-665a-4b6e-ab7a-aed7909a88f8)
+
