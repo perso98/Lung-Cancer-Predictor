@@ -47,7 +47,7 @@ def predict():
         prediction = model.predict(input_data_scaled)
         prediction_percent = prediction[0][0] * 100
 
-        return render_template('index.html', prediction_text=f'Probability of having cancer: {prediction_percent:.2f}%')
+        return render_template('index.html', prediction_text=f'Probability of having lung cancer: {prediction_percent:.2f}%')
 
     except Exception as e:
         return str(e)
