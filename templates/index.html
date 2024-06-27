@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cancer Prediction</title>
+    <style>
+      body {
+        background-color: #121212;
+        color: #e0e0e0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .container {
+        margin-top: 50px;
+        text-align: center;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      form {
+        background-color: #1e1e1e;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        width: 300px;
+        margin: 0 auto;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      .radio-group {
+        margin-bottom: 15px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        margin: 5px 0;
+        border-radius: 4px;
+        border: 1px solid #333;
+        background-color: #2e2e2e;
+        color: #e0e0e0;
+      }
+      input[type="radio"] {
+        margin-right: 10px;
+      }
+      .radio-group input[type="radio"] + label {
+        margin-right: 20px;
+      }
+      .radio-group label {
+        display: inline;
+      }
+      input[type="submit"] {
+        background-color: #6200ea;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        display: block;
+        margin: 20px auto 0 auto;
+      }
+      input[type="submit"]:hover {
+        background-color: #3700b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Cancer Prediction Form</h1>
+      <form action="/predict" method="post">
+        <div class="form-group">
+          <label>Gender:</label>
+          <div class="radio-group">
+            <input type="radio" name="GENDER" value="1" id="male" checked />
+            <label for="male">M</label>
+            <input type="radio" name="GENDER" value="0" id="female" />
+            <label for="female">F</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Age:</label>
+          <input type="text" name="AGE" required />
+        </div>
+        <div class="form-group">
+          <label>Smoking:</label>
+          <div class="radio-group">
+            <input
+              type="radio"
+              name="SMOKING"
+              value="1"
+              id="smoking_yes"
+              checked
+            />
+            <label for="smoking_yes">Yes</label>
+            <input type="radio" name="SMOKING" value="0" id="smoking_no" />
+            <label for="smoking_no">No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Yellow Fingers:</label>
+          <div class="radio-group">
+            <input
+              type="radio"
+              name="YELLOW_FINGERS"
+              value="1"
+              id="yellow_fingers_yes"
+              checked
+            />
+            <label for="yellow_fingers_yes">Yes</label>
+            <input
+              type="radio"
+              name="YELLOW_FINGERS"
+              value="0"
+              id="yellow_fingers_no"
+            />
+            <label for="yellow_fingers_no">No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Anxiety:</label>
+          <div class="radio-group">
+            <input
+              type="radio"
+              name="ANXIETY"
+              value="1"
+              id="anxiety_yes"
+              checked
+            />
+            <label for="anxiety_yes">Yes</label>
+            <input type="radio" name="ANXIETY" value="0" id="anxiety_no" />
+            <label for="anxiety_no">No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Peer Pressure:</label>
+          <div class="radio-group">
+            <input
+              type="radio"
+              name="PEER_PRESSURE"
+              value="1"
+              id="peer_pressure_yes"
+              checked
+            />
+            <label for="peer_pressure_yes">Yes</label>
+            <input
+              type="radio"
+              name="PEER_PRESSURE"
+              value="0"
+              id="peer_pressure_no"
+            />
+            <label for="peer_pressure_no">No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Chronic Disease:</label>
+          <div class="radio-group">
+            <input
+              type="radio"
+              name="CHRONIC_DISEASE"
+              value="1"
+              id="chronic_disease_yes"
+              checked
+            />
+            <label for="chronic_disease_yes">Yes</label>
+            <input
+              type="radio"
+              name="CHRONIC_DISEASE"
+              value="0"
+              id="chronic_disease_no"
+            />
+            <label for="chronic_disease_no">No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Fatigue:</label>
+          <div class="radio-group">
+            <input
+              type="radio"
+              name="FATIGUE"
+              value="1"
+              id="fatigue_yes"
+              checked
+            />
+            <label for="fatigue_yes">Yes</label>
+            <input type="radio" name="FATIGUE" value="0" id="fatigue_no" />
+            <label for="fatigue_no">No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Allergy:</label>
+          <div class="radio-group">
+            <input
+              type="radio"
+              name="ALLERGY"
+              value="1"
+              id="allergy_yes"
+              checked
+            />
+            <label for="allergy_yes">Yes</label>
+            <input type="radio" name="ALLERGY" value="0" id="allergy_no" />
+            <label for="allergy_no">No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Wheezing:</label>
+          <div class="radio-group">
+            <input
+              type="radio"
+              name="WHEEZING"
+              value="1"
+              id="wheezing_yes"
+              checked
+            />
+            <label for="wheezing_yes">Yes</label>
+            <input type="radio" name="WHEEZING" value="0" id="wheezing_no" />
+            <label for="wheezing_no">No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Alcohol Consuming:</label>
+          <div class="radio-group">
+            <input
+              type="radio"
+              name="ALCOHOL_CONSUMING"
+              value="1"
+              id="alcohol_yes"
+              checked
+            />
+            <label for="alcohol_yes">Yes</label>
+            <input
+              type="radio"
+              name="ALCOHOL_CONSUMING"
+              value="0"
+              id="alcohol_no"
+            />
+            <label for="alcohol_no">No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Coughing:</label>
+          <div class="radio-group">
+            <input
+              type="radio"
+              name="COUGHING"
+              value="1"
+              id="coughing_yes"
+              checked
+            />
+            <label for="coughing_yes">Yes</label>
+            <input type="radio" name="COUGHING" value="0" id="coughing_no" />
+            <label for="coughing_no">No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Shortness of Breath:</label>
+          <div class="radio-group">
+            <input
+              type="radio"
+              name="SHORTNESS_OF_BREATH"
+              value="1"
+              id="shortness_yes"
+              checked
+            />
+            <label for="shortness_yes">Yes</label>
+            <input
+              type="radio"
+              name="SHORTNESS_OF_BREATH"
+              value="0"
+              id="shortness_no"
+            />
+            <label for="shortness_no">No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Swallowing Difficulty:</label>
+          <div class="radio-group">
+            <input
+              type="radio"
+              name="SWALLOWING_DIFFICULTY"
+              value="1"
+              id="swallowing_yes"
+              checked
+            />
+            <label for="swallowing_yes">Yes</label>
+            <input
+              type="radio"
+              name="SWALLOWING_DIFFICULTY"
+              value="0"
+              id="swallowing_no"
+            />
+            <label for="swallowing_no">No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Chest Pain:</label>
+          <div class="radio-group">
+            <input
+              type="radio"
+              name="CHEST_PAIN"
+              value="1"
+              id="chest_yes"
+              checked
+            />
+            <label for="chest_yes">Yes</label>
+            <input type="radio" name="CHEST_PAIN" value="0" id="chest_no" />
+            <label for="chest_no">No</label>
+          </div>
+        </div>
+        <input type="submit" value="Predict" />
+      </form>
+      {% if prediction_text %}
+      <h2>{{ prediction_text }}</h2>
+      {% endif %}
+    </div>
+  </body>
+</html>
