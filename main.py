@@ -1,14 +1,14 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, send_from_directory
 import numpy as np
 from tensorflow.keras.models import load_model
 import joblib
 
 app = Flask(__name__)
 
-# Wczytanie modelu
+# Load the model
 model = load_model('predict_lung_cancer_model.keras')
 
-# Wczytanie scalera
+# Load the scaler
 scaler = joblib.load('scaler.pkl')
 
 @app.route('/')
@@ -18,7 +18,7 @@ def index():
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
-        # Pobieranie danych z formularza
+        # Get data from the form
         gender = int(request.form['GENDER'])
         age = int(request.form['AGE'])
         smoking = int(request.form['SMOKING'])
@@ -35,15 +35,15 @@ def predict():
         swallowing_difficulty = int(request.form['SWALLOWING_DIFFICULTY'])
         chest_pain = int(request.form['CHEST_PAIN'])
 
-        # Tworzenie tablicy z danymi
+        # Create an array with the data
         input_data = np.array([[gender, age, smoking, yellow_fingers, anxiety, peer_pressure,
                                 chronic_disease, fatigue, allergy, wheezing, alcohol_consuming,
                                 coughing, shortness_of_breath, swallowing_difficulty, chest_pain]])
 
-        # Skalowanie danych wejściowych
+        # Scale the input data
         input_data_scaled = scaler.transform(input_data)
 
-        # Przewidywanie za pomocą modelu
+        # Predict using the model
         prediction = model.predict(input_data_scaled)
         prediction_percent = prediction[0][0] * 100
 
@@ -51,6 +51,10 @@ def predict():
 
     except Exception as e:
         return str(e)
+
+@app.route('/templates/<path:filename>')
+def custom_static(filename):
+    return send_from_directory('templates', filename)
 
 if __name__ == '__main__':
     app.run(debug=True)

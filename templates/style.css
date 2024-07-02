@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  margin: 0;
+  padding-top: 50px;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+form {
+  background-color: #1e1e1e;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  width: 350px;
+  margin: 20px auto;
+  margin-bottom: 20%;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.radio-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 20px 0;
+  border-radius: 4px;
+  border: 1px solid #333;
+  background-color: #2e2e2e;
+  color: #e0e0e0;
+  font-size: 1em;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"] + label {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-bottom: 5px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #2e2e2e;
+  color: #e0e0e0;
+  font-size: 1em;
+}
+
+input[type="radio"]:checked + label {
+  background-color: #6200ea;
+  border-color: #6200ea;
+}
+
+input[type="submit"] {
+  background-color: #6200ea;
+  color: #fff;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  margin: 30px auto 0 auto;
+  font-size: 1.2em;
+}
+
+input[type="submit"]:hover {
+  background-color: #3700b3;
+}
