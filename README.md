@@ -14,5 +14,6 @@ This project is a web application for predicting the probability of having lung 
   - `scaler.pkl`: The saved scaler for normalizing input data.
  
 
-  ![image](https://github.com/perso98/Lung-Cancer-Predictor/assets/72854881/66e6f5d9-665a-4b6e-ab7a-aed7909a88f8)
+![image](https://github.com/perso98/Lung-Cancer-Predictor/assets/72854881/8a5a2dec-12a7-45c2-b1b9-94a0ab679964)
+
 
